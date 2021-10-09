@@ -2,9 +2,10 @@
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { MainApp } from './src/navigation';
+import { AlertProvider } from './src/api';
 
 // Define all your fonts below
 const customFonts = {
@@ -21,7 +22,13 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       {!loaded && <Text>Loading Assets</Text>}
-      {loaded && <MainApp />}
+      {loaded && (
+        <Fragment>
+          <AlertProvider>
+            <MainApp />
+          </AlertProvider>
+        </Fragment>
+      )}
     </View>
   );
 }
