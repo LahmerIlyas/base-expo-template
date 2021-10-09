@@ -2,12 +2,14 @@ import * as React from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Icon } from '../components';
 const Stack = createStackNavigator();
 
 const Home: React.FC = () => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text style={{ color: 'black' }}>Home Screen Lahmer </Text>
+      <Icon name={'test'} />
     </View>
   );
 };
